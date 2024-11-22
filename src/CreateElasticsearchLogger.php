@@ -17,6 +17,7 @@ class CreateElasticsearchLogger
     public function __invoke(array $config)
     {
         $logger = new Logger('elasticsearch');
+        // ADAN XORRA
 
         //create the client
         $client = ClientBuilder::create()
