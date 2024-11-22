@@ -1,0 +1,25 @@
+{
+    "name": "sfa/elastic",
+    "description": "Implementacion de libreria elastic para el monitoreo de logs",
+    "type": "library",
+    "require": {
+        "elasticsearch/elasticsearch": "^8.16"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Sfa\\Elastic\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "RobertoHerrOrt",
+            "email": "97401440+RobertoHerrOrt@users.noreply.github.com"
+        }
+    ],
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    }
+}
