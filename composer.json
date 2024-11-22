@@ -5,10 +5,15 @@
     "require": {
         "elasticsearch/elasticsearch": "^8.16"
     },
+    "scripts":{
+        "post-install-cmd": [ 
+            "elastic\\ComposerScripts::postInstall"
+        ]
+    },
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Sfa\\Elastic\\": "src/"
+            "sfa\\elastic\\": "src/"
         }
     },
     "authors": [
