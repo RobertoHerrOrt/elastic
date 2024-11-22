@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Logging;
+namespace sfa\elastic;
 
 use Elastic\Elasticsearch\ClientBuilder;
 use Monolog\Handler\ElasticsearchHandler;
@@ -20,13 +20,13 @@ class CreateElasticsearchLogger
 
         //create the client
         $client = ClientBuilder::create()
-                    ->setHosts([env('ELASTICSEARCH_HOST')])
-                    ->setBasicAuthentication(env('ELASTICSEARCH_USERNAME'), env('ELASTICSEARCH_PASSWORD'))
+                    ->setHosts([env('ELASTICSEARCH_HOST', "https://elastic-devops.michoacan.gob.mx")])
+                    ->setBasicAuthentication(env('ELASTICSEARCH_USERNAME', 'user_logs'), env('ELASTICSEARCH_PASSWORD','gBd$s&9Tkjsd5a65'))
                     ->build();
 
         //create the handler
         $options = [
-            'index' => strtolower(env('ELASTICSEARCH_INDEX')),
+            'index' => strtolower(env('ELASTICSEARCH_INDEX', 'elastic-test')),
         ];
         $handler = new ElasticsearchHandler($client, $options);
 
