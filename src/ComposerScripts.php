@@ -1,6 +1,6 @@
 <?php
 
-namespace elasticscripts;
+namespace  sfa\elastic;
 
 use Composer\Script\Event;
 // Composer script
@@ -8,10 +8,11 @@ use Symfony\Component\Filesystem\Filesystem;
 
 class ComposerScripts
 {
-    public static function postInstall(Event $event)
+    public static function postInstall()
     {
+        echo "dddd";
         $rootDir = __DIR__;
-
+    
         // Crear el archivo
         $filename = 'mi_archivoscri.txt';
         $filepath = $rootDir . '/' . $filename;
@@ -21,21 +22,21 @@ class ComposerScripts
         fwrite($handle, 'Este es el contenido de mi archivo.');
         fclose($handle);
             // Obtener el nombre del paquete que se está instalando
-            $packageName = $event->getComposer()->getPackage()->getName();
+           // $packageName = $event->getComposer()->getPackage()->getName();
 
             // Si se está instalando un paquete específico, ejecutar una tarea
-            if ($packageName === 'sfa/elastic') {
-                $rootDir = __DIR__;
+            // if ($packageName === 'sfa/elastic') {
+            //     $rootDir = __DIR__;
 
-                // Crear el archivo
-                $filename = 'mi_archivoif.txt';
-                $filepath = $rootDir . '/' . $filename;
+            //     // Crear el archivo
+            //     $filename = 'mi_archivoif.txt';
+            //     $filepath = $rootDir . '/' . $filename;
                 
-                // Escribir en el archivo
-                $handle = fopen($filepath, 'w');
-                fwrite($handle, 'Este es el contenido de mi archivo.');
-                fclose($handle);
-            }
+            //     // Escribir en el archivo
+            //     $handle = fopen($filepath, 'w');
+            //     fwrite($handle, 'Este es el contenido de mi archivo.');
+            //     fclose($handle);
+            // }
 
         // $extra = $event->getComposer()->getPackage()->getExtra();
 
